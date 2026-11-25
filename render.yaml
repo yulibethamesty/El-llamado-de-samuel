@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: el-llamado-de-samuel-license-api
+    runtime: node
+    plan: free
+    buildCommand: npm install --prefix api
+    startCommand: npm --prefix api start
+    healthCheckPath: /healthz
+    envVars:
+      - key: FIREBASE_PROJECT_ID
+        value: el-llamado-de-samuel
+      - key: ADMIN_EMAIL
+        value: yulibethame@gmail.com
+      - key: ALLOWED_ORIGINS
+        value: https://el-llamado-de-samuel.web.app
+      - key: LICENSE_PRIVATE_JWK
+        sync: false
